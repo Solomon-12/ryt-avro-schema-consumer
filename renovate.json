@@ -1,8 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "regexManagers": [
+  "customManagers": [
     {
-      "fileMatch": [
+      "customType": "regex",
+      "managerFilePatterns": [
         "^pom\\.xml$"
       ],
       "matchStrings": [
@@ -12,9 +13,11 @@
       "versioningTemplate": "regex:^v(?<major>\\d+)(?<minor>\\.\\d+)?(?<patch>\\.\\d+)?$"
     }
   ],
-  "customDatasources": {
-    "name": "kafka-schema-versions",
-    "defaultUrl": "https://raw.githubusercontent.com/rytbank/schemas/main/kafka-apis-manifest.yaml",
-    "extractVersion": "const yaml = require('js-yaml');const doc = yaml.load(content);const dep = doc['kafka-apis'].find(item => item.name === depName);if (!dep) { return null; }const versions = dep.versions.map(v => parseInt(v.slice(1)));const latestVersion = Math.max(...versions);return `v${latestVersion}`;"
-  }
+  "customDatasources": [
+    {
+      "name": "kafka-schema-versions",
+      "defaultUrl": "https://raw.githubusercontent.com/rytbank/schemas/main/kafka-apis-manifest.yaml",
+      "extractVersion": "const yaml = require('js-yaml');const doc = yaml.load(content);const dep = doc['kafka-apis'].find(item => item.name === depName);if (!dep) { return null; }const versions = dep.versions.map(v => parseInt(v.slice(1)));const latestVersion = Math.max(...versions);return `v${latestVersion}`;"
+    }
+  ]
 }
