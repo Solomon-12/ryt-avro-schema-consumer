@@ -1,5 +1,4 @@
 {
-  "extends": ["config:recommended"],
   "customManagers": [
     {
       "customType": "regex",
@@ -8,16 +7,10 @@
         "<sourceDirectory>\\s*\\$\\{project\\.basedir\\}/schemas/customer/v(?<currentValue>\\d+)\\s*<\\/sourceDirectory>"
       ],
       "depNameTemplate": "customer-schema",
-      "datasourceTemplate": "git",
+      "datasourceTemplate": "regex",
       "packageNameTemplate": "rytbank/schemas",
-      "extractVersionTemplate": "^schemas/customer/v(?<version>\\d+)$",
-      "versioningTemplate": "regex:^(?<major>\\d+)$"
-    }
-  ],
-  "packageRules": [
-    {
-      "matchPackageNames": ["customer-schema"],
-      "allowedVersions": "/^\\d+$/"
+      "versioningTemplate": "regex:^(?<major>\\d+)$",
+      "extractVersionTemplate": "v(?<version>\\d+)"
     }
   ]
 }
