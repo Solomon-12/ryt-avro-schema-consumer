@@ -322,7 +322,7 @@
 						</goals>
 						<configuration>
 							<enableDecimalLogicalType>true</enableDecimalLogicalType>
-							<sourceDirectory>${project.basedir}/schemas/customer/v48</sourceDirectory>
+							<sourceDirectory>${project.basedir}/schemas/customer/v47</sourceDirectory>
 						</configuration>
 					</execution>
 					<execution>
@@ -333,7 +333,7 @@
 						</goals>
 						<configuration>
 							<enableDecimalLogicalType>true</enableDecimalLogicalType>
-							<sourceDirectory>${project.basedir}/schemas/reward/v6</sourceDirectory>
+							<sourceDirectory>${project.basedir}/schemas/reward/v5</sourceDirectory>
 						</configuration>
 					</execution>
 					<execution>
@@ -344,7 +344,7 @@
 						</goals>
 						<configuration>
 							<enableDecimalLogicalType>true</enableDecimalLogicalType>
-							<sourceDirectory>${project.basedir}/schemas/deposit/v59</sourceDirectory>
+							<sourceDirectory>${project.basedir}/schemas/deposit/v58</sourceDirectory>
 						</configuration>
 					</execution>
 					<execution>
@@ -355,7 +355,7 @@
 						</goals>
 						<configuration>
 							<enableDecimalLogicalType>true</enableDecimalLogicalType>
-							<sourceDirectory>${project.basedir}/schemas/payment/v65</sourceDirectory>
+							<sourceDirectory>${project.basedir}/schemas/payment/v64</sourceDirectory>
 						</configuration>
 					</execution>
 					<execution>
@@ -366,7 +366,7 @@
 						</goals>
 						<configuration>
 							<enableDecimalLogicalType>true</enableDecimalLogicalType>
-							<sourceDirectory>${project.basedir}/schemas/credit-financing/v15</sourceDirectory>
+							<sourceDirectory>${project.basedir}/schemas/credit-financing/v14</sourceDirectory>
 						</configuration>
 					</execution>
 					<execution>
@@ -377,7 +377,7 @@
 						</goals>
 						<configuration>
 							<enableDecimalLogicalType>true</enableDecimalLogicalType>
-							<sourceDirectory>${project.basedir}/schemas/card/v49</sourceDirectory>
+							<sourceDirectory>${project.basedir}/schemas/card/v48</sourceDirectory>
 						</configuration>
 					</execution>
 					<execution>
@@ -388,7 +388,7 @@
 						</goals>
 						<configuration>
 							<enableDecimalLogicalType>true</enableDecimalLogicalType>
-							<sourceDirectory>${project.basedir}/schemas/assistant-engine/v12</sourceDirectory>
+							<sourceDirectory>${project.basedir}/schemas/assistant-engine/v11</sourceDirectory>
 						</configuration>
 					</execution>
 					<execution>
@@ -399,7 +399,7 @@
 						</goals>
 						<configuration>
 							<enableDecimalLogicalType>true</enableDecimalLogicalType>
-							<sourceDirectory>${project.basedir}/schemas/transaction/v37</sourceDirectory>
+							<sourceDirectory>${project.basedir}/schemas/transaction/v36</sourceDirectory>
 						</configuration>
 					</execution>
 					<execution>
@@ -410,7 +410,7 @@
 						</goals>
 						<configuration>
 							<enableDecimalLogicalType>true</enableDecimalLogicalType>
-							<sourceDirectory>${project.basedir}/schemas/martech/v14</sourceDirectory>
+							<sourceDirectory>${project.basedir}/schemas/martech/v13</sourceDirectory>
 						</configuration>
 					</execution>
 				</executions>
