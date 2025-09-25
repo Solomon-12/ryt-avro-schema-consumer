@@ -1,33 +1,28 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "baseBranchPatterns": ["main"],
-  "enabledManagers": ["custom.regex"],
-  "customManagers": [
+  "regexManagers": [
     {
-      "customType": "regex",
-      "managerFilePatterns": ["/(^|/)pom\\.xml$/"],
-      "matchStrings": [
-        "<sourceDirectory>\\$\\{project\\.basedir\\}/schemas/customer/v(?<currentValue>\\d+)</sourceDirectory>",
-        "<sourceDirectory>\\$\\{project\\.basedir\\}/schemas/payment/v(?<currentValue>\\d+)</sourceDirectory>",
-        "<sourceDirectory>\\$\\{project\\.basedir\\}/schemas/card/v(?<currentValue>\\d+)</sourceDirectory>"
+      "fileMatch": [
+        "^pom\\.xml$"
       ],
-      "datasourceTemplate": "custom.kafka-apis",
-      "depNameTemplate": "{{{replace '/' '-' depName}}}",
-      "versioningTemplate": "regex:^v(?<major>\\d+)$"
+      "matchStrings": [
+        "<sourceDirectory>.+?<schemas>\\/(?<depName>.+?)\\/v(?<currentValue>\\d+)<\\/sourceDirectory>"
+      ],
+      "datasourceTemplate": "kafka-schema-versions",
+      "versioningTemplate": "regex:^v(?<major>\\d+)(?<minor>\\.\\d+)?(?<patch>\\.\\d+)?$"
     }
   ],
-  "packageRules": [
+  "customDatasources": [
     {
-      "matchDatasources": ["custom.kafka-apis"],
-      "extractVersion": "^v(?<version>\\d+)$",
-      "groupName": "Schema Upgrades"
-    },
-    {
-      "matchPackageNames": ["card"],
-      "matchCurrentValue": "49",
-      "matchCurrentVersion": "v49",
-      "allowedVersions": ">=50",
-      "enabled": true
+      "name": "kafka-schema-versions",
+      "defaultUrl": "https://raw.githubusercontent.com/rytbank/schemas/main/kafka-apis-manifest.yaml",
+      "extractVersion": "const yaml = require('js-yaml');const doc = yaml.load(content);const dep = doc['kafka-apis'].find(item => item.name === depName);if (!dep) { return null; }const versions = dep.versions.map(v => parseInt(v.slice(1)));const latestVersion = Math.max(...versions);return `v${latestVersion}`;",
+      "supports  `extends`": true,
+      "supports `pin`": true,
+      "supports `extractVersion`": false,
+      "supports `automerge`": true,
+      "supports `rangeStrategy`": true,
+      "supports `ignore`": true
     }
   ]
 }
