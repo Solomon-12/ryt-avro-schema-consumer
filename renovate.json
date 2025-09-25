@@ -8,9 +8,7 @@
       ],
       "depNameTemplate": "customer-schema",
       "datasourceTemplate": "regex",
-      "packageNameTemplate": "rytbank/schemas",
-      "versioningTemplate": "regex:^(?<major>\\d+)$",
-      "extractVersionTemplate": "v(?<version>\\d+)"
+      "versioningTemplate": "regex:^(?<major>\\d+)$"
     }
   ]
 }
