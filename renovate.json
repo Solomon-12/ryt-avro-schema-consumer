@@ -7,9 +7,9 @@
       "customType": "regex",
       "managerFilePatterns": ["/(^|/)pom\\.xml$/"],
       "matchStrings": [
-        "<id>customer-generate-sources</id>([\\s\\S]*?)<sourceDirectory>\\$\\{project\\.basedir\\}/schemas/customer/v(?<currentValue>\\d+)</sourceDirectory>",
-        "<id>payment-generate-sources</id>([\\s\\S]*?)<sourceDirectory>\\$\\{project\\.basedir\\}/schemas/payment/v(?<currentValue>\\d+)</sourceDirectory>",
-        "<id>card-generate-sources</id>([\\s\\S]*?)<sourceDirectory>\\$\\{project\\.basedir\\}/schemas/card/v(?<currentValue>\\d+)</sourceDirectory>"
+        "<sourceDirectory>\\$\\{project\\.basedir\\}/schemas/customer/v(?<currentValue>\\d+)</sourceDirectory>",
+        "<sourceDirectory>\\$\\{project\\.basedir\\}/schemas/payment/v(?<currentValue>\\d+)</sourceDirectory>",
+        "<sourceDirectory>\\$\\{project\\.basedir\\}/schemas/card/v(?<currentValue>\\d+)</sourceDirectory>"
       ],
       "datasourceTemplate": "custom.kafka-apis",
       "depNameTemplate": "{{{replace '/' '-' depName}}}",
