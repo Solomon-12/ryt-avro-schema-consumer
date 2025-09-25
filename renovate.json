@@ -1,12 +1,11 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "baseBranches": ["main"],
-  "enabledManagers": ["regex"],
-  "repositories": [
-  ],
-  "regexManagers": [
+  "baseBranchPatterns": ["main"],
+  "enabledManagers": ["custom.regex"],
+  "customManagers": [
     {
-      "fileMatch": ["(^|/)pom\\.xml$"],
+      "customType": "regex",
+      "managerFilePatterns": ["/(^|/)pom\\.xml$/"],
       "matchStrings": [
         "<id>customer-generate-sources</id>.*?<sourceDirectory>\\$\\{project\\.basedir\\}/schemas/customer/v(?<currentValue>\\d+)</sourceDirectory>",
         "<id>payment-generate-sources</id>.*?<sourceDirectory>\\$\\{project\\.basedir\\}/schemas/payment/v(?<currentValue>\\d+)</sourceDirectory>",
@@ -17,15 +16,6 @@
       "versioningTemplate": "regex:^v(?<major>\\d+)$"
     }
   ],
-  "customDataSources": {
-    "kafka-apis": {
-      "defaultRegistryUrl": "github>ORG/schemas",
-      "defaultFile": "kafka-apis-manifest.yaml",
-      "regex": "(?<=name: )(?<depName>\\S+)(?:[\\s\\S]*?)(?<=versions:\\n\\s+)(?<versions>- [\\s\\S]+?)(?=\\n- name:|\\Z)",
-      "versioning": "regex:^v(?<major>\\d+)$",
-      "lookupRegex": "(?:^|\\s+)- v(?<version>\\d+)"
-    }
-  },
   "packageRules": [
     {
       "matchDatasources": ["custom.kafka-apis"],
